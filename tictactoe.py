@@ -12,6 +12,9 @@ from turtle import *
 
 from freegames import line
 
+gride = [[0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]]
 
 def grid():
     """Draw tic-tac-toe grid."""
@@ -44,15 +47,97 @@ state = {'player': 0}
 players = [drawx, drawo]
 
 
+
 def tap(x, y):
     """Draw X or O in tapped square."""
     x = floor(x)
     y = floor(y)
     player = state['player']
     draw = players[player]
-    draw(x, y)
+    #add condicionais para casa preenchida
+
+    #coluna 1
+    if x == -200 and y == 66:
+        if (gride[0][0] == 0):
+            draw(x, y)
+            state['player'] = not player
+    
+    if x == -200 and y == -67:
+        if (gride[1][0] == 0):
+            draw(x, y)
+            state['player'] = not player
+
+    if x == -200 and y == -200:
+        if (gride[2][0] == 0):
+            draw(x, y)
+            state['player'] = not player
+
+    #coluna 2
+    if x == -67 and y == 66:
+        if (gride[0][1] == 0):
+            draw(x, y)
+            state['player'] = not player
+    
+    if x == -67 and y == -67:
+        if (gride[1][1] == 0):
+            draw(x, y)
+            state['player'] = not player
+
+    if x == -67 and y == -200:
+        if (gride[2][1] == 0):
+            draw(x, y)
+            state['player'] = not player
+    
+    #coluna 3
+    if x == 66 and y == 66:
+        if (gride[0][2] == 0):
+            draw(x, y)
+            state['player'] = not player
+    
+    if x == 66 and y == -67:
+        if (gride[1][2] == 0):
+            draw(x, y)
+            state['player'] = not player
+
+    if x == 66 and y == -200:
+        if (gride[2][2] == 0):
+            draw(x, y)
+            state['player'] = not player
+
     update()
-    state['player'] = not player
+    
+    # condicionais de preenchimento
+
+    #coluna 1
+    if x == -200 and y == 66:
+        gride[0][0] = 1
+    
+    if x == -200 and y == -67:
+        gride[1][0] = 1
+    
+    if x == -200 and y == -200:
+        gride[2][0] = 1
+
+    #coluna 2
+    if x == -67 and y == 66:
+        gride[0][1] = 1
+    
+    if x == -67 and y == -67:
+        gride[1][1] = 1
+    
+    if x == -67 and y == -200:
+        gride[2][1] = 1
+    
+    #coluna 3
+    if x == 66 and y == 66:
+        gride[0][2] = 1
+    
+    if x == 66 and y == -67:
+        gride[1][2] = 1
+    
+    if x == 66 and y == -200:
+        gride[2][2] = 1
+
 
 
 setup(420, 420, 370, 0)
