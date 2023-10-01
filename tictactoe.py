@@ -76,11 +76,12 @@ def checarVitoria(player):
 
 state = {'player': 0}
 players = [drawx, drawo]
+#matriz para ajudar com o problema de casa vazia ou não
 gride = [[-1, -1, -1], 
          [-1, -1, -1], 
          [-1, -1, -1]]
 
-
+# add a condição para casa vazia ou não
 def tap(x, y):
     """Draw X or O in tapped square."""
     x = floor(x)
